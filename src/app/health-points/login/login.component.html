@@ -1,0 +1,33 @@
+<div class="mainContainer">
+    <mat-card class="example-card loginContainer">
+        <mat-card-content>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Log In
+                </div>
+                <div class="panel-body">
+                    <form class="example-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                        <mat-form-field class="form-group example-full-width">
+                            <input matInput placeholder="User Name" type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
+                        </mat-form-field>
+                        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                            <div *ngIf="f.username.errors.required">Username is required</div>
+                        </div>
+                        <mat-form-field class="form-group example-full-width">
+                            <input matInput placeholder="Password" type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                        </mat-form-field>
+                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                            <div *ngIf="f.password.errors.required">Password is required</div>
+                        </div>
+                        <div class="form-group">
+                            <!-- <button mat-raised-button color="accent" class="tenMarginTop">Register</button> -->
+                            <a mat-raised-button color="accent" class="tenMarginTop" routerLink="/healthpoints">Cancel</a>
+                            <button mat-raised-button class="floatRight tenMarginTop" color="primary" [disabled]="loading">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner> -->
+        </mat-card-content>
+    </mat-card>
+</div>

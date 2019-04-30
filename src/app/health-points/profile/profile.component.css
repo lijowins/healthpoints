@@ -1,0 +1,17 @@
+.mainContainer {
+    display: block;
+    height: 81vh;
+    width: 100%;
+}
+
+.example-margin {
+    margin: 0 10px;
+}
+
+.fill-space {
+    flex: 1 1 auto;
+}
+
+mat-icon {
+    cursor: pointer;
+}

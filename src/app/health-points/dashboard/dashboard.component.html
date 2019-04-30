@@ -1,0 +1,25 @@
+<div style="height: 56px">
+    <app-toolbar></app-toolbar>
+</div>
+<div class="mainContainer" style="overflow-y:auto; height: calc(100vh - 112px);">
+    <div>
+        <!-- <mat-card style="margin: 15px;"> -->
+        <ngb-carousel *ngIf="images" [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators">
+            <ng-template ngbSlide *ngFor="let image of images; let i = index">
+                <mat-toolbar style="height:40px; background-color: #3f51b5; color: white">Trackable {{i + 1}}</mat-toolbar>
+                <mat-card class="goCutBox" style="height: calc(100vh - 170px); margin: 5px 15px 15px  15px;">
+                    <mat-toolbar>Pie Chart</mat-toolbar>
+                    <canvas id='pieChart' style="margin:10px 10px 10px 10px;"></canvas>
+                    <mat-toolbar>Bar Chart</mat-toolbar>
+                    <canvas id='barChart' style="margin-top: 10px;"></canvas>
+                </mat-card>
+                <div class="carousel-caption">
+                </div>
+            </ng-template>
+        </ngb-carousel>
+        <!-- </mat-card> -->
+    </div>
+</div>
+<div style="height: 56px ">
+    <app-footer></app-footer>
+</div>

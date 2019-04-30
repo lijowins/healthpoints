@@ -1,0 +1,45 @@
+<div style="height: 56px">
+    <app-toolbar></app-toolbar>
+</div>
+<div class="mainContainer" style="overflow-y:auto; height: calc(100vh - 112px);">
+    <mat-card style="margin: 15px; height: calc(100vh - 140px);">
+        <mat-toolbar>
+            <mat-icon>track_changes</mat-icon>&nbsp;My Trackables
+            <span flex class="fill-space"></span>
+            <div style="float:right;">
+                <button mat-icon-button [matMenuTriggerFor]="menu">
+                  <mat-icon>add</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="selectCategory('30971cb0-b1e2-431d-8042-7a96153fc8aa', 'Activities')">
+                      <mat-icon style="font-weight:bold">directions_walk</mat-icon>
+                      <span>Activities</span>
+                    </button>
+                    <button mat-menu-item (click)="selectCategory('57598f89-66ae-4fdc-9f8f-14e7c33cf970', 'Diet')">
+                      <mat-icon style="font-weight:bold">fastfood</mat-icon>
+                      <span>Diet</span>
+                    </button>
+                    <button mat-menu-item (click)="selectCategory('0aa7a56f-024a-46fd-bba9-17d0baf35cad', 'Wellness')">
+                        <mat-icon style="font-weight:bold">favorite</mat-icon>
+                        <span>Wellness</span>
+                    </button>
+                </mat-menu>
+                <!-- <mat-icon style="font-weight: bold;" (click)="logout()">block</mat-icon> -->
+            </div>
+        </mat-toolbar>
+        <mat-list>
+            <mat-list-item>
+                <!-- <mat-progress-spinner class="example-margin" [color]="color" [mode]="mode" [value]="value" [diameter]="diameter" [strokeWidth]="strokewidth">
+                </mat-progress-spinner> -->
+                Trackable 1
+                <mat-divider [inset]="true"></mat-divider>
+            </mat-list-item>
+            <mat-list-item>Trackable 2
+                <mat-divider [inset]="true"></mat-divider>
+            </mat-list-item>
+        </mat-list>
+    </mat-card>
+</div>
+<div style="height: 56px">
+    <app-footer></app-footer>
+</div>
