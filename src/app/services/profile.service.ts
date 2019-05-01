@@ -30,4 +30,8 @@ export class ProfileService {
   getLogsByTrackableId(trackableId: string){
     return this.http.get<any>(`${this.logUrl}/${trackableId}`);
   }
+  
+  registerProfile(request: any){
+    return this.http.post<any>(this.profileUrl, request);
+  }
 }

@@ -1,0 +1,102 @@
+@media only screen and (max-width: 600px) {
+    .loginContainer {
+        top: 10%;
+        width: 85%;
+        background: white;
+        margin: auto;
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+    .loginContainer {
+        top: 15%;
+        width: 55%;
+        background: white;
+        margin: auto;
+    }
+    .panel-body {
+        max-height: 70vh;
+    }
+}
+
+@media only screen and (min-width: 901px) {
+    .loginContainer {
+        top: 15%;
+        width: 35%;
+        background: white;
+        margin: auto;
+    }
+}
+
+mat-card {
+    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12)
+}
+
+.goCutBox {
+    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12)
+}
+
+.loginHeader {
+    width: 40%;
+    display: block;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+}
+
+.panel-default .panel-heading {
+    background-color: #901E78;
+    color: #fff;
+}
+
+.panel .panel-heading {
+    position: absolute;
+    top: -35px;
+    left: 15%;
+    right: 15%;
+    text-align: center;
+    padding: 24px 20px;
+    font-size: 28px;
+    font-weight: 200;
+    border: none;
+    -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    -o-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.panel-default .panel-body {
+    background-color: #f5f5f5;
+}
+
+.panel .panel-body {
+    padding-top: 45px;
+    text-align: justify;
+    padding-bottom: 20px;
+}
+
+.panel-body {
+    padding: 15px;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+.mainContainer {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.tenMarginTop {
+    margin-top: 10px;
+}
+
+;

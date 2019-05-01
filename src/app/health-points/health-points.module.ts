@@ -19,9 +19,10 @@ import { FooterComponent } from './footer/footer.component';
 import { TrackablesComponent } from './trackables/trackables.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LogComponent } from './log/log.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
-  declarations: [ LoginComponent, LandingComponent, DashboardComponent, ToolbarComponent, FooterComponent, TrackablesComponent, ProfileComponent, LogComponent],
+  declarations: [ LoginComponent, LandingComponent, DashboardComponent, ToolbarComponent, FooterComponent, TrackablesComponent, ProfileComponent, LogComponent, RegisterComponent],
   imports: [
     CommonModule,
     FormsModule,

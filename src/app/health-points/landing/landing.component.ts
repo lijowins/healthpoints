@@ -16,4 +16,8 @@ export class LandingComponent implements OnInit {
   navigateToLogin(){
     this.router.navigate(['/healthpoints/login']);
   }
+
+  navigateToRegister(){
+    this.router.navigate(['/healthpoints/register']);
+  }
 }

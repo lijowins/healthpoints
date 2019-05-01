@@ -7,10 +7,12 @@ import { TrackablesComponent } from './trackables/trackables.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthGuard } from '../core/authentication/auth.guard';
 import { LogComponent } from './log/log.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'trackables', component: TrackablesComponent, canActivate: [AuthGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
