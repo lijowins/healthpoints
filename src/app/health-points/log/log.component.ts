@@ -10,13 +10,13 @@ import { MatTableDataSource } from '@angular/material';
   styleUrls: ['./log.component.css']
 })
 export class LogComponent implements OnInit {
-  id: string = "";
-  trackable: any = null;
-  logs: any = null;
-  dataSource: any = null;
+  public id: string = "";
+  public trackable: any = null;
+  public logs: any = null;
+  public dataSource: any = null;
   public displayedColumns: string[] = ['No.', 'Date', 'Points'];
- 
   private sub: any;
+  private moment = require('moment');
 
   constructor(private route: ActivatedRoute, private profileService: ProfileService, private dataService: DataService) { }
 
@@ -32,6 +32,9 @@ export class LogComponent implements OnInit {
     this.profileService.getLogsByTrackableId(this.id).subscribe(
       result => {
         this.logs = result.data;
+        this.logs.forEach(element => {
+          element.LOG_DATE = this.moment(element.LOG_DATE, "YYYYMMDD").format('DD/MM/YYYY');
+        });
         this.dataSource = new MatTableDataSource(this.logs);
       },
       error => {

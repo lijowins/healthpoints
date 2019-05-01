@@ -30,9 +30,4 @@ export class ProfileService {
   getLogsByTrackableId(trackableId: string){
     return this.http.get<any>(`${this.logUrl}/${trackableId}`);
   }
-
-  getLogsByUserProfile(profileId: string)
-  {
-    return this.http.get<any>(`${this.logUrl}/useprofileid/${profileId}`);
-  }
 }

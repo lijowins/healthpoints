@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class TrackablesComponent implements OnInit {
 
   public trackables: any = null;
+
   constructor(private profileService: ProfileService, private dataService: DataService, private router: Router) { }
 
   ngOnInit() {
