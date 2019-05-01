@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ProfileService } from 'src/app/services/profile.service';
 import { DataService } from 'src/app/services/data.service';
 import { MatTableDataSource } from '@angular/material';
+declare var require: any
 
 @Component({
   selector: 'app-log',
