@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Chart } from 'chart.js';
+import { ProfileService } from 'src/app/services/profile.service';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,24 +16,45 @@ export class DashboardComponent implements OnInit {
   images = ["http://www.kent-college.co.uk/slider/thrive/5-annabel-swimming.jpg", "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/athlete-cycling-on-country-road-royalty-free-image-955084722-1532118648.jpg", "https://www.allibert-trekking.com/iconographie/25/PL1_trek-au-fitz-roy-et-torres-del-paine.jpg"]
   PieChart = [];
   BarChart = [];
-
-  constructor(config: NgbCarouselConfig) {
+  points = [];
+  public trackables: any = null;
+  data = [];
+  constructor(config: NgbCarouselConfig, private profileService: ProfileService, private dataService: DataService) {
     // customize default values of carousels used by this component tree
     config.showNavigationArrows = true;
     config.showNavigationIndicators = true;
   }
 
   ngOnInit() {
+    this.getTrackables();
   }
 
-  ngAfterViewInit() {
-    this.PieChart = new Chart('pieChart', {
+  getTrackables() {
+
+    this.profileService.getTrackablesByProfile(this.dataService.currentUser.ID).subscribe(res => {
+      this.trackables = null;
+      this.trackables = res.data;
+      this.trackables.forEach((x, index) =>
+        this.profileService.getLogsByTrackableId(x.ID).subscribe(result => {
+          //this.data.push(res.data)
+          this.points= [];
+          result.data.forEach(x => this.points.push(x.POINTS_EARNED));
+          this.loadChart(index);
+          console.log(this.points);
+        }));
+    });
+  }
+
+  ngAfterViewInit() { }
+
+  loadChart(i: number) {
+    this.PieChart.push(new Chart('pieChart' + i, {
       type: 'pie',
       data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple"],
+        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
         datasets: [{
           label: '# of Votes',
-          data: [9, 7, 3, 5, 2],
+          data: this.points,
           backgroundColor: [
             'rgba(255, 99, 132, 1)',
             'rgba(54, 162, 235, 1)',
@@ -63,14 +86,14 @@ export class DashboardComponent implements OnInit {
           position: 'left'
         }
       }
-    });
-    this.BarChart = new Chart('barChart', {
+    }));
+    this.BarChart.push(new Chart('barChart' + i, {
       type: 'bar',
       data: {
         labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
         datasets: [{
           label: '# of Votes',
-          data: [9, 7, 3, 5, 2, 10],
+          data: this.points,
           backgroundColor: [
             'rgba(255, 99, 132, 1)',
             'rgba(54, 162, 235, 1)',
@@ -107,9 +130,7 @@ export class DashboardComponent implements OnInit {
           position: 'right'
         }
       }
-    });
-
-
+    }));
   }
 
 }
