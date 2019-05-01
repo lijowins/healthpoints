@@ -3,7 +3,27 @@
 </div>
 <div class="mainContainer" style="overflow-y:auto; height: calc(100vh - 112px);">
     <mat-card style="margin: 15px; height: calc(100vh - 140px);">
-
+        <div class="panel panel-primary">
+            <mat-toolbar class="panel-heading">
+                <h4 classs="panel-title">Welcome {{firstName}} !!!</h4>
+            </mat-toolbar>
+            <div class="panel-body">
+                <div class="col-xs-6" style="text-align: center">
+                    <img style="height: 200px;" src="assets/images/ProfileImage_M.png" />
+                </div>
+                <mat-card style="margin-top: 20px;">
+                    <div class="row" style="padding:10px">
+                        First Name: {{firstName}}
+                    </div>
+                    <div class="row" style="padding:10px">
+                        Last Name: {{lastName}}
+                    </div>
+                    <div class="row" style="padding:10px">
+                        User Name: {{userName}}
+                    </div>
+                </mat-card>
+            </div>
+        </div>
     </mat-card>
 </div>
 <div style="height: 56px">
