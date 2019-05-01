@@ -16,14 +16,8 @@ mat-icon {
     cursor: pointer;
 }
 
-.trackableName {
-    width: 80%;
-    padding: 10px;
+.logTrackableName {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-:host /deep/ .mat-list-item-content {
-    padding: 0!important;
 }

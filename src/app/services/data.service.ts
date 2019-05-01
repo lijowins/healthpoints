@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class DataService {
 
   public currentUser: any = null;
+  public trackables: any = null;
 
   constructor() { }
 }

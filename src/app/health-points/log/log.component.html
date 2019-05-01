@@ -1,0 +1,31 @@
+<div style="height: 56px">
+    <app-toolbar></app-toolbar>
+</div>
+<div class="mainContainer" style="overflow-y:auto; height: calc(100vh - 112px);">
+    <mat-card style="margin: 15px; height: calc(100vh - 140px);">
+        <mat-toolbar style="font-size:13pt">
+            <mat-icon>{{trackable.MatIcon}}</mat-icon>&nbsp;
+            <div class="logTrackableName" title="{{trackable.NAME}}">{{trackable.NAME}}</div>
+        </mat-toolbar>
+        <table mat-table [dataSource]="dataSource" style="width:100%;">
+            <ng-container matColumnDef="No.">
+                <th mat-header-cell *matHeaderCellDef> No. </th>
+                <td mat-cell *matCellDef="let element; let i = index"> {{i + 1}} </td>
+            </ng-container>
+            <ng-container matColumnDef="Date">
+                <th mat-header-cell *matHeaderCellDef> Date </th>
+                <td mat-cell *matCellDef="let element"> {{element.LOG_DATE}} </td>
+            </ng-container>
+            <ng-container matColumnDef="Points">
+                <th mat-header-cell *matHeaderCellDef> Points </th>
+                <td mat-cell *matCellDef="let element"> {{element.POINTS_EARNED}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns; let i = index"></tr>
+        </table>
+    </mat-card>
+</div>
+<div style="height: 56px">
+    <app-footer></app-footer>
+</div>

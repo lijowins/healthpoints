@@ -18,9 +18,10 @@ import { NgbModule, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { FooterComponent } from './footer/footer.component';
 import { TrackablesComponent } from './trackables/trackables.component';
 import { ProfileComponent } from './profile/profile.component';
+import { LogComponent } from './log/log.component';
 
 @NgModule({
-  declarations: [ LoginComponent, LandingComponent, DashboardComponent, ToolbarComponent, FooterComponent, TrackablesComponent, ProfileComponent],
+  declarations: [ LoginComponent, LandingComponent, DashboardComponent, ToolbarComponent, FooterComponent, TrackablesComponent, ProfileComponent, LogComponent],
   imports: [
     CommonModule,
     FormsModule,

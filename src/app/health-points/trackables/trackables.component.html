@@ -24,17 +24,13 @@
                         <span>Wellness</span>
                     </button>
                 </mat-menu>
-                <!-- <mat-icon style="font-weight: bold;" (click)="logout()">block</mat-icon> -->
             </div>
         </mat-toolbar>
         <mat-list>
-            <mat-list-item>
-                <!-- <mat-progress-spinner class="example-margin" [color]="color" [mode]="mode" [value]="value" [diameter]="diameter" [strokeWidth]="strokewidth">
-                </mat-progress-spinner> -->
-                Trackable 1
-                <mat-divider [inset]="true"></mat-divider>
-            </mat-list-item>
-            <mat-list-item>Trackable 2
+            <mat-list-item *ngFor="let item of trackables; let i = index" (click)="openLogs(item.ID)">
+                <mat-icon>{{item.MatIcon}}</mat-icon>
+                <div class="trackableName" title="{{item.NAME}}">{{item.NAME}}</div>
+                <div>{{item.Points}}Pts</div>
                 <mat-divider [inset]="true"></mat-divider>
             </mat-list-item>
         </mat-list>
