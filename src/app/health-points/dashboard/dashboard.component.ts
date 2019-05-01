@@ -3,6 +3,7 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Chart } from 'chart.js';
 import { ProfileService } from 'src/app/services/profile.service';
 import { DataService } from 'src/app/services/data.service';
+declare var require: any
 
 @Component({
   selector: 'app-dashboard',
@@ -19,6 +20,9 @@ export class DashboardComponent implements OnInit {
   points = [];
   public trackables: any = null;
   data = [];
+  legends = [];
+  private moment = require('moment');
+  
   constructor(config: NgbCarouselConfig, private profileService: ProfileService, private dataService: DataService) {
     // customize default values of carousels used by this component tree
     config.showNavigationArrows = true;
@@ -38,22 +42,21 @@ export class DashboardComponent implements OnInit {
         this.profileService.getLogsByTrackableId(x.ID).subscribe(result => {
           //this.data.push(res.data)
           this.points= [];
+          this.legends= [];
           result.data.forEach(x => this.points.push(x.POINTS_EARNED));
+          result.data.forEach(x => this.legends.push(this.moment(x.LOG_DATE, "YYYYMMDD").format('DD/MM/YYYY')));
           this.loadChart(index);
-          console.log(this.points);
         }));
     });
   }
-
-  ngAfterViewInit() { }
 
   loadChart(i: number) {
     this.PieChart.push(new Chart('pieChart' + i, {
       type: 'pie',
       data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels: this.legends,
         datasets: [{
-          label: '# of Votes',
+          // label: '# of Votes',
           data: this.points,
           backgroundColor: [
             'rgba(255, 99, 132, 1)',
@@ -90,9 +93,9 @@ export class DashboardComponent implements OnInit {
     this.BarChart.push(new Chart('barChart' + i, {
       type: 'bar',
       data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels: this.legends,
         datasets: [{
-          label: '# of Votes',
+          // label: '# of Votes',
           data: this.points,
           backgroundColor: [
             'rgba(255, 99, 132, 1)',

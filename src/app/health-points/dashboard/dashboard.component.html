@@ -4,9 +4,9 @@
 <div class="mainContainer" style="overflow-y:auto; height: calc(100vh - 112px);">
     <div>
         <!-- <mat-card style="margin: 15px;"> -->
-        <ngb-carousel *ngIf="images" [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators">
-            <ng-template ngbSlide *ngFor="let image of images; let i = index">
-                <mat-toolbar style="height:40px; background-color: #3f51b5; color: white">Trackable {{i + 1}}</mat-toolbar>
+        <ngb-carousel *ngIf="trackables" [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators">
+            <ng-template ngbSlide *ngFor="let item of trackables; let i = index">
+                <mat-toolbar style="height:40px; background-color: #3f51b5; color: white">{{item.NAME}}</mat-toolbar>
                 <mat-card class="goCutBox" style="margin: 5px 15px 15px  15px;">
                     <div class="pieChart">
                         <mat-toolbar>Pie Chart</mat-toolbar>
